@@ -25,7 +25,7 @@ h1 {
 			if (fn_valiChk()) {
 				return false;
 			}
-			formObj.attr("action", "/board/write");
+			formObj.attr("action", "/tip/write");
 			formObj.attr("method", "post");
 			formObj.submit();
 		});
@@ -45,11 +45,11 @@ h1 {
 		<%@include file="header.jsp"%>
 	</div></br>
 	<header>
-	<h1>자유게시판</h1>
+	<h1>꿀팁게시판</h1>
 </header>
 
 	<section id="container">
-		<form name="writeForm" method="post" action="/board/write">
+		<form name="writeForm" method="post" action="/tip/write">
 			<table>
 				<tbody>
 					<c:if test="${member.userId != null}">

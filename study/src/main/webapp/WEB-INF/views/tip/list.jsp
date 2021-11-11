@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <style>
+   <style>
 h1 {
 	text-align: center; 
 }
@@ -21,7 +21,7 @@ h1 {
 			</div>
 		<div class="container"></br>
 			<header>
-				<h1>자유게시판</h1>
+				<h1>꿀팁게시판</h1>
 			</header>
 			<hr />
 			 
@@ -37,7 +37,7 @@ h1 {
 							<tr>
 								<td><c:out value="${list.bno}" /></td>
 								<td>
-									<a href="/board/readView?bno=${list.bno}&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword}"><c:out value="${list.title}" /></a>
+									<a href="/tip/readView?bno=${list.bno}&page=${scri.page}&perPageNum=${scri.perPageNum}&searchType=${scri.searchType}&keyword=${scri.keyword}"><c:out value="${list.title}" /></a>
 								</td>
 								<td><c:out value="${list.writer}" /></td>
 								<td><fmt:formatDate value="${list.regdate}" pattern="yyyy-MM-dd"/></td>
@@ -75,7 +75,7 @@ h1 {
 							 
 							 $(document).on('click', '#btnWriteForm', function(e){
 									e.preventDefault();
-									location.href = "${pageContext.request.contextPath}/board/writeView";
+									location.href = "${pageContext.request.contextPath}/tip/writeView";
 								});
 						</script>
 					</div>

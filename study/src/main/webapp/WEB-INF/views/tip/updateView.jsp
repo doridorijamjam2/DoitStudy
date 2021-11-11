@@ -20,7 +20,7 @@ h1 {
 			
 			$(".cancel_btn").on("click", function(){
 				event.preventDefault();
-				location.href = "/board/readView?bno=${update.bno}"
+				location.href = "/tip/readView?bno=${update.bno}"
 					   + "&page=${scri.page}"
 					   + "&perPageNum=${scri.perPageNum}"
 					   + "&searchType=${scri.searchType}"
@@ -31,7 +31,7 @@ h1 {
 				if(fn_valiChk()){
 					return false;
 				}
-				formObj.attr("action", "/board/update");
+				formObj.attr("action", "/tip/update");
 				formObj.attr("method", "post");
 				formObj.submit();
 			})
@@ -51,13 +51,13 @@ h1 {
 	<body>
 			<div>
 				<%@include file="header.jsp" %>
-			</div></br>
-<header>
-	<h1>자유게시판</h1>
+			</div>
+			<header>
+	<h1>꿀팁게시판</h1>
 </header>
 			
 			<section id="container">
-				<form name="updateForm" role="form" method="post" action="/board/update">
+				<form name="updateForm" role="form" method="post" action="/tip/update">
 					<input type="hidden" name="bno" value="${update.bno}" readonly="readonly"/>
 					<table>
 						<tbody>

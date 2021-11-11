@@ -19,7 +19,7 @@ h1 {
 			var formObj = $("form[name='updateForm']");
 			
 			$(".cancel_btn").on("click", function(){
-				location.href = "/board/readView?bno=${replyDelete.bno}"
+				location.href = "/tip/readView?bno=${replyDelete.bno}"
 					   + "&page=${scri.page}"
 					   + "&perPageNum=${scri.perPageNum}"
 					   + "&searchType=${scri.searchType}"
@@ -34,11 +34,11 @@ h1 {
 				<%@include file="header.jsp" %>
 			</div></br>
 		<header>
-	<h1>자유게시판</h1>
+	<h1>꿀팁게시판</h1>
 </header>
 			
 			<section id="container">
-				<form name="updateForm" role="form" method="post" action="/board/replyDelete">
+				<form name="updateForm" role="form" method="post" action="/tip/replyDelete">
 					<input type="hidden" name="bno" value="${replyDelete.bno}" readonly="readonly"/>
 					<input type="hidden" id="rno" name="rno" value="${replyDelete.rno}" />
 					<input type="hidden" id="page" name="page" value="${scri.page}"> 
@@ -53,5 +53,7 @@ h1 {
 					</div>
 				</form>
 			</section>
+			<hr />
+		</div>
 	</body>
 </html>

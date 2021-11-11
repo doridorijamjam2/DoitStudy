@@ -7,6 +7,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <style>
+h1 {
+	text-align: center; 
+}
+</style>
 	 	<title>게시판</title>
 	</head>
 	<script type="text/javascript">
@@ -27,9 +32,10 @@
 	<body>
 		<div>
 				<%@include file="header.jsp" %>
-			</div>
-		<div id="root">
-			<hr />
+			</div></br>
+	<header>
+	<h1>자유게시판</h1>
+</header>
 			
 			<section id="container">
 				<form name="updateForm" role="form" method="post" action="/board/replyUpdate">
@@ -55,7 +61,5 @@
 					</div>
 				</form>
 			</section>
-			<hr />
-		</div>
 	</body>
 </html>

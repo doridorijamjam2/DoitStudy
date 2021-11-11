@@ -22,7 +22,7 @@ h1 {
 			
 			// 수정 
 			$(".update_btn").on("click", function(){
-				formObj.attr("action", "/board/updateView");
+				formObj.attr("action", "/tip/updateView");
 				formObj.attr("method", "get");
 				formObj.submit();				
 			})
@@ -33,7 +33,7 @@ h1 {
 				var deleteYN = confirm("삭제하시겠습니까?");
 				if(deleteYN == true){
 					
-				formObj.attr("action", "/board/delete");
+				formObj.attr("action", "/tip/delete");
 				formObj.attr("method", "post");
 				formObj.submit();
 					
@@ -43,20 +43,20 @@ h1 {
 			// 목록
 			$(".list_btn").on("click", function(){
 				
-				location.href = "/board/list?page=${scri.page}"
+				location.href = "/tip/list?page=${scri.page}"
 						      +"&perPageNum=${scri.perPageNum}"
 						      +"&searchType=${scri.searchType}&keyword=${scri.keyword}";
 			})
 			
 			$(".replyWriteBtn").on("click", function(){
 				var formObj = $("form[name='replyForm']");
-				formObj.attr("action", "/board/replyWrite");
+				formObj.attr("action", "/tip/replyWrite");
 				formObj.submit();
 			});
 			
 			//댓글 수정 View
 			$(".replyUpdateBtn").on("click", function(){
-				location.href = "/board/replyUpdateView?bno=${read.bno}"
+				location.href = "/tip/replyUpdateView?bno=${read.bno}"
 								+ "&page=${scri.page}"
 								+ "&perPageNum=${scri.perPageNum}"
 								+ "&searchType=${scri.searchType}"
@@ -66,7 +66,7 @@ h1 {
 			
 			//댓글 삭제 View
 			$(".replyDeleteBtn").on("click", function(){
-				location.href = "/board/replyDeleteView?bno=${read.bno}"
+				location.href = "/tip/replyDeleteView?bno=${read.bno}"
 					+ "&page=${scri.page}"
 					+ "&perPageNum=${scri.perPageNum}"
 					+ "&searchType=${scri.searchType}"
@@ -82,9 +82,8 @@ h1 {
 			</div>
 		<div class="container"></br>
 		<header>
-	<h1>자유게시판</h1>
-</header>
-
+				<h1>꿀팁게시판</h1>
+			</header>
 			<section id="container">
 				<form name="readForm" role="form" method="post">
 					<input type="hidden" id="bno" name="bno" value="${read.bno}" />
