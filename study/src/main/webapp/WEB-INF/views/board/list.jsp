@@ -3,12 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 	<head>
-		<!-- 합쳐지고 최소화된 최신 CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		<!-- 부가적인 테마 -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	 	
 	 	<title>게시판</title>
 	</head>
@@ -68,7 +66,12 @@
 								 $('#searchBtn').click(function() {
 									 self.location = "list" + '${pageMaker.makeQuery(1)}' + "&searchType=" + $("select option:selected").val() + "&keyword=" + encodeURIComponent($('#keywordInput').val());
 								 });
-							 });   
+							 }); 
+							 
+							 $(document).on('click', '#btnWriteForm', function(e){
+									e.preventDefault();
+									location.href = "${pageContext.request.contextPath}/board/writeView";
+								});
 						</script>
 					</div>
 					<div class="col-md-offset-3">
@@ -88,6 +91,10 @@
 						</ul>
 					</div>
 				</form>
+					<div>
+				<button type="button" class="btn btn-sm btn-primary"
+					id="btnWriteForm">글쓰기</button>
+			</div>
 			</section>
 		</div>
 	</body>
