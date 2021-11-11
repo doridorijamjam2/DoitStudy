@@ -20,7 +20,7 @@
 		</button>
 		<div class="collapse navbar-collapse"   id="collapsibleNavbar">
 		<ul class="nav navbar-nav">
-				<li><a href="main.jsp">메인</a></li>
+				<li><a href="main/main">메인</a></li>
 				<li><a href="planner.jsp">스터디 플래너</a></li>
 				<li><a href="tip.jsp">꿀팁 게시판</a></li>
 				<li><a href="/board/list">자유 게시판</a></li>
