@@ -11,20 +11,26 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
+<style>
+.collapse .nav .navs {
+	margin-left: 5px
+}
+</style>
+
 <!--메뉴바 추가 부분-->
 <!-- 상단 메뉴바{s} -->
 	<nav class="navbar navbar-expand-md bg-dark navbar-dark ">
-		<a class="navbar-brand" href="main.jsp">DO IT! STUDY</a>
+		<a class="navbar-brand" href="main">DO IT! STUDY</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 			<span class="navbar-toggler-icon"   ></span>
 		</button>
 		<div class="collapse navbar-collapse"   id="collapsibleNavbar">
 		<ul class="nav navbar-nav">
-				<li><a href="main/main">메인</a></li>
-				<li><a href="planner.jsp">스터디 플래너</a></li>
-				<li><a href="tip.jsp">꿀팁 게시판</a></li>
-				<li><a href="/board/list">자유 게시판</a></li>
-				<li class="active"><a href="/board/writeView">랭킹</a></li>
+				<li class="nav-item"><a class="nav-link"  href="/main/main">메인</a></li>
+				<li class="nav-item"><a class="nav-link" href="/planner/planner">스터디 플래너</a></li>
+				<li class="nav-item"><a class="nav-link" href="/tip/list">꿀팁 게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/board/list">자유 게시판</a></li>
+				<li class="nav-item"><a class="nav-link" href="/rank">랭킹</a></li>
 			</ul>
 			<c:choose>
 				<c:when test="${member == null}">
