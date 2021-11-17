@@ -77,5 +77,6 @@
       <button class = "add-button" type = "button" 
            onclick="click_add();">일정 추가</button>
 </div>
+
   </body>
 </html>

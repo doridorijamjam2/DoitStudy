@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.spring.study.security.CustomUserDetails;
 import com.spring.study.vo.MemberVO;
 
 @Repository
@@ -19,9 +20,8 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 	
 	@Override
-	public MemberVO login(MemberVO vo) throws Exception {
-		
-		return sql.selectOne("memberMapper.login", vo);
+	public CustomUserDetails login(String userId) {
+	   return sql.selectOne("memberMapper.login", userId);
 	}
 	
 	//서비스에서 보낸 파라미터들을 memberUpdate(MemberVO vo)에 담습니다.
@@ -54,4 +54,6 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = sql.selectOne("memberMapper.idChk", vo);
 		return result;
 	}
+
+
 }

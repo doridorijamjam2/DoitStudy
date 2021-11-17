@@ -17,10 +17,6 @@ public class MemberServiceImpl implements MemberService {
 		dao.register(vo);
 	}
 	
-	@Override
-	public MemberVO login(MemberVO vo) throws Exception {
-		return dao.login(vo);
-	}
 	
 	//Controller에서 보내는 파라미터들을 memberUpdate(MemberVO vo)로 받고
 	@Override

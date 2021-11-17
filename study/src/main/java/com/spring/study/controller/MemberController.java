@@ -1,7 +1,5 @@
 package com.spring.study.controller;
 
-
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -48,26 +46,18 @@ public class MemberController {
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}
-		return "redirect:/";
+		return "redirect:/member/login";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
-		logger.info("post login");
-		
-		HttpSession session = req.getSession();
-		MemberVO login = service.login(vo);
-		
-		if(login == null) {
-			session.setAttribute("member", null);
-			rttr.addFlashAttribute("msg", false);
-		}else {
-			session.setAttribute("member", login);
+	//로그인 페이지
+		@RequestMapping(value = "login")
+		public String login() throws Exception {
+			
+			return "/member/login";
 		}
 		
-		return "redirect:/";
-	}
 	
+
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
 		

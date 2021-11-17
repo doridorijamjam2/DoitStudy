@@ -8,6 +8,9 @@ public class MemberVO {
 	private String userPass;
 	private String userName;
 	private Date regDate;
+	private String authority;
+	private boolean enabled;
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -31,6 +34,19 @@ public class MemberVO {
 	}
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
+	}
+	
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 	
 	@Override

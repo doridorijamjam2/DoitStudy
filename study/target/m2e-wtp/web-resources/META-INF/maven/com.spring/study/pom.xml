@@ -13,6 +13,8 @@
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<mysql.version>5.1.46</mysql.version>
+		<spring.maven.artifact.version>4.3.25.RELEASE</spring.maven.artifact.version>
+		<egovframework.rte.version>3.10.0</egovframework.rte.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -199,6 +201,25 @@
 <scope>provided</scope>
 
 </dependency>
+
+<!-- 시큐리티 -->
+<dependency>
+   <groupId>org.springframework.security</groupId>
+   <artifactId>spring-security-core</artifactId>
+   <version>4.2.3.RELEASE</version>
+</dependency>
+<dependency>
+   <groupId>org.springframework.security</groupId>
+   <artifactId>spring-security-web</artifactId>
+   <version>4.2.3.RELEASE</version>
+</dependency>
+<dependency>
+   <groupId>org.springframework.security</groupId>
+   <artifactId>spring-security-config</artifactId>
+   <version>4.2.3.RELEASE</version>
+</dependency>
+
+
 
 
 		
