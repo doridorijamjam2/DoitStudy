@@ -18,11 +18,7 @@ public class MemberDAOImpl implements MemberDAO {
 		sql.insert("memberMapper.register", vo);
 	}
 	
-	@Override
-	public MemberVO login(MemberVO vo) throws Exception {
-		
-		return sql.selectOne("memberMapper.login", vo);
-	}
+
 	
 	//서비스에서 보낸 파라미터들을 memberUpdate(MemberVO vo)에 담습니다.
 	@Override

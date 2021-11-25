@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+
 <html>
 	<head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -146,7 +148,7 @@ h1 {
 					<div class="form-group">
 						<label for="writer" class="col-sm-2 control-label">댓글 작성자</label>
 						<div class="col-sm-10">
-							<input type="text" id="writer" name="writer" class="form-control" />
+							<input type="text" id="writer" name="writer" class="form-control" value='<sec:authentication property="principal.username"/>' readonly="readonly"/>
 						</div>
 					</div>
 					

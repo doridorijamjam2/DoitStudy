@@ -52,7 +52,7 @@ h1 {
 		<form name="writeForm" method="post" action="/tip/write">
 			<table>
 				<tbody>
-					<c:if test="${member.userId != null}">
+					<c:if test="${not empty pageContext.request.userPrincipal}">
 						<div class="mb-3">
 							<label for="title">제목</label> <input id="title" name="title"
 								class="form-control chk" placeholder="제목을 입력해 주세요" />
@@ -73,7 +73,7 @@ h1 {
 						</div>
 
 					</c:if>
-					<c:if test="${member.userId == null}">
+					<c:if test="${empty pageContext.request.userPrincipal}">
 						<p>로그인 후에 작성하실 수 있습니다.</p>
 					</c:if>
 

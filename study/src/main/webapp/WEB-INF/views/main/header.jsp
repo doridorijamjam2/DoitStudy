@@ -33,10 +33,10 @@
 				<li class="nav-item"><a class="nav-link" href="/rank">랭킹</a></li>
 			</ul>
 			<c:choose>
-				<c:when test="${member == null}">
+				<c:when test="${empty pageContext.request.userPrincipal}">
 				<div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
 				<ul class="navbar-nav float-right" >
-						<li class="nav-item"><a class="nav-link"  href="/">로그인</a></li>
+						<li class="nav-item"><a class="nav-link"  href="/login">로그인</a></li>
 						<li class="nav-item"><a class="nav-link" href="/member/register">회원가입</a></li>
 					</ul>
 					</div>
@@ -44,8 +44,8 @@
 				<c:otherwise>
 				<div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
 					<ul class="navbar-nav">
-						<li class="nav-item"><a class="nav-link" href="/member/memberUpdateView">회원정보</a></li>
-						<li class="nav-item"><a class="nav-link" href="/member/logout">로그아웃</a></li>
+						<li class="nav-item"><a class="nav-link" href="/login">회원정보</a></li>
+						<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/security_logout">로그아웃</a></li>
 					</ul>
 					</div>
 				</c:otherwise>
