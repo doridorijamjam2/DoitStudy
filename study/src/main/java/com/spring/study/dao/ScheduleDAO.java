@@ -16,8 +16,8 @@ public class ScheduleDAO {
    private SqlSession sqlSession;
 
    
-   public List<ScheduleVO> showSchedule() throws Exception {
-      return sqlSession.selectList("scheduleMapper.showSchedule");
+   public List<ScheduleVO> showSchedule(String id) throws Exception {
+      return sqlSession.selectList("scheduleMapper.showSchedule", id);
    }
    
    public void addSchedule(ScheduleVO vo) throws Exception  {

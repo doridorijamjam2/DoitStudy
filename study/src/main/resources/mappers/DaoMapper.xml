@@ -9,7 +9,7 @@
 	</select>
 	
 	<select id="getAuthList" resultType="String">
-		SELECT AUTHORITY FROM USERAUTH WHERE USERID=#{userId}
+		SELECT AUTHORITY FROM MP_MEMBER WHERE USERID=#{userId}
 	</select>
 		
 </mapper>

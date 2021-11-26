@@ -71,24 +71,15 @@ public class MemberController {
 	// 회원 탈퇴 get
 		@RequestMapping(value="/memberDeleteView", method = RequestMethod.GET)
 		public String memberDeleteView() throws Exception{
+			logger.info("aaaaa");
 			return "member/memberDeleteView";
 		}
 		
 		// 회원 탈퇴 post
 		@RequestMapping(value="/memberDelete", method = RequestMethod.POST)
 		public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
+			logger.info("aa");
 			
-			// 세션에 있는 member를 가져와 member변수에 넣어줍니다.
-			UserDetailsDto member = (UserDetailsDto) session.getAttribute("member");
-			// 세션에있는 비밀번호
-			String sessionPass = member.getPassword();
-			// vo로 들어오는 비밀번호
-			String voPass = vo.getUserPass();
-			
-			if(!(sessionPass.equals(voPass))) {
-				rttr.addFlashAttribute("msg", false);
-				return "redirect:/member/memberDeleteView";
-			}
 			service.memberDelete(vo);
 			session.invalidate();
 			return "redirect:/login";

@@ -6,17 +6,19 @@
     <mapper namespace = "scheduleMapper">
     	<select id="showSchedule" parameterType = "String" resultType = "com.spring.study.vo.ScheduleVO">
     		SELECT
-    			SUBJECT,STARTDATE,ENDDATE,MEMO
+    			SUBJECT,STARTDATE,ENDDATE
     		FROM
     			SCHEDULE
+    		WHERE
+    			USERID = #{USERID}
     		ORDER BY
     			NUM
     		DESC
     	</select>
     	<insert id="addSchedule" parameterType = "com.spring.study.vo.ScheduleVO">
 	    	INSERT INTO
-	    		SCHEDULE(SUBJECT,STARTDATE,ENDDATE,MEMO)
+	    		SCHEDULE(USERID,SUBJECT,STARTDATE,ENDDATE)
 	    	VALUES
-	    		(#{subject},#{startDate},#{endDate},#{memo})
+	    		(#{userId},#{subject},#{startDate},#{endDate})
     	</insert>
     </mapper>

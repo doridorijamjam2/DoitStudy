@@ -1,15 +1,21 @@
 package com.spring.study.vo;
 
 public class ScheduleVO {
+	   private String userId;
 	   private int num;
 	   private String subject;
 	   private String startDate;
 	   private String endDate;
-	   private String memo;
 	   
 	   
 	   
-       public int getNum() {
+       public String getUserId() {
+		return userId;
+	   }
+	   public void setUserId(String userId) {
+		this.userId = userId;
+	   }
+	   public int getNum() {
 		return num;
 	   }
        public void setNum(int num) {
@@ -33,10 +39,5 @@ public class ScheduleVO {
 	   public void setEndDate(String endDate) {
 	      this.endDate = endDate;
 	   }
-	   public String getMemo() {
-	      return memo;
-	   }
-	   public void setMemo(String memo) {
-	      this.memo = memo;
-	   }
+	 
 	}

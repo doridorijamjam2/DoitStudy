@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +20,10 @@
    <div class = "group-head">
       <h1 class = "zTree-h1"> 일정 추가 </h1>
    </div>
+   <div class="form-group has-feedback">
+		<label class="control-label" for="userId">아이디</label>
+		<input class="form-control" type="text" id="userId" name="userId" value='<sec:authentication property="principal.username"/>' readonly="readonly"/>
+	</div>
    <div class = "group-body">
    <form id = "scheduleData">
       <div class = "top">
@@ -104,12 +109,7 @@
         };
     </script>
       
-      <div class = "domain">
-         <h3 class = "zTree-h3"> 메모 </h3>
-      </div>
-      <div class = "domain">
-         <textarea class = "memo" id = "memo" name = "memo" rows = "5" cols = "20" placeholder="100글자까지 입력 가능합니다"></textarea> 
-      </div>
+ 
    </form>
       <button class = "ok-button" type= "button" onclick="click_ok();">확인</button>
    </div>   
