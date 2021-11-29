@@ -113,8 +113,11 @@ h1 {
 				</div>
 								
 				<div>
+				<sec:authentication property="principal" var="pinfo" />
+					<c:if test="${pinfo.username eq read.writer}">
 					<button type="button" class="update_btn btn btn-warning">수정</button>
 					<button type="button" class="delete_btn btn btn-danger">삭제</button>
+				</c:if>
 					<button type="button" class="list_btn btn btn-primary">목록</button>	
 				</div>
 				
@@ -130,8 +133,11 @@ h1 {
 								  
 								<p>${replyList.content}</p>
 								<div>
+								<sec:authentication property="principal" var="pinfo" />
+								<c:if test="${pinfo.username eq replyList.writer}">
 									<button type="button" class="replyUpdateBtn btn btn-warning" data-rno="${replyList.rno}">수정</button>
 									<button type="button" class="replyDeleteBtn btn btn-danger" data-rno="${replyList.rno}">삭제</button>
+								</c:if>
 								</div>
 							</li>
 						</c:forEach>   
