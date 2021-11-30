@@ -24,11 +24,11 @@
 		/>
 		<s:intercept-url pattern="/login" access="permitAll"/>
 		<s:intercept-url pattern="/main/main" access="permitAll"/>
-		<s:intercept-url pattern="/board/**" access="hasRole('ROLE_USER')"/>
+		<s:intercept-url pattern="/board/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
 		<s:intercept-url pattern="/rank/**" access="hasRole('ROLE_USER')"/>
-		<s:intercept-url pattern="/tip/**" access="hasRole('ROLE_USER')"/>
+		<s:intercept-url pattern="/tip/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
 		<s:intercept-url pattern="/schedule/**" access="hasRole('ROLE_USER')"/>
-		<s:intercept-url pattern="/admin.html*" access="hasRole('ROLE_ADMIN')"/>
+		<s:intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')"/>
 		<s:access-denied-handler error-page="/"/>
 	</s:http>
 		

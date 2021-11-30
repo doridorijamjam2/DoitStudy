@@ -96,6 +96,11 @@ h1 {
 				</form>
 				
 				<div class="form-group">
+					<label for="regdate" class="col-sm-2 control-label">작성날짜</label>
+					<fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" />	
+				</div>
+				
+				<div class="form-group">
 					<label for="title" class="col-sm-2 control-label">제목</label>
 					<input type="text" id="title" name="title" class="form-control" value="${read.title}" readonly="readonly" />
 				</div>
@@ -107,19 +112,25 @@ h1 {
 					<label for="writer" class="col-sm-2 control-label">작성자</label>
 					<input type="text" id="writer" name="writer" class="form-control" value="${read.writer}"  readonly="readonly"/>
 				</div>
-				<div class="form-group">
-					<label for="regdate" class="col-sm-2 control-label">작성날짜</label>
-					<fmt:formatDate value="${read.regdate}" pattern="yyyy-MM-dd" />	
-				</div>
 								
+				<sec:authorize access="hasRole('ROLE_ADMIN')" >
+				<div>
+					<button type="button" class="update_btn btn btn-warning">수정</button>
+					<button type="button" class="delete_btn btn btn-danger">삭제</button>
+					<button type="button" class="list_btn btn btn-primary">목록</button>	
+				</div>
+				</sec:authorize>
+				
+				<sec:authorize access="hasRole('ROLE_USER')" >
 				<div>
 				<sec:authentication property="principal" var="pinfo" />
-					<c:if test="${pinfo.username eq read.writer}">
+				<c:if test="${pinfo.username eq read.writer}">
 					<button type="button" class="update_btn btn btn-warning">수정</button>
 					<button type="button" class="delete_btn btn btn-danger">삭제</button>
 				</c:if>
 					<button type="button" class="list_btn btn btn-primary">목록</button>	
 				</div>
+				</sec:authorize>
 				
 				<!-- 댓글 -->
 				<div id="reply">
@@ -132,6 +143,13 @@ h1 {
 								</p>
 								  
 								<p>${replyList.content}</p>
+									<sec:authorize access="hasRole('ROLE_ADMIN')" >
+								<div>
+									<button type="button" class="replyUpdateBtn btn btn-warning" data-rno="${replyList.rno}">수정</button>
+									<button type="button" class="replyDeleteBtn btn btn-danger" data-rno="${replyList.rno}">삭제</button>
+								</div>
+								</sec:authorize>
+								<sec:authorize access="hasRole('ROLE_USER')" >
 								<div>
 								<sec:authentication property="principal" var="pinfo" />
 								<c:if test="${pinfo.username eq replyList.writer}">
@@ -139,6 +157,7 @@ h1 {
 									<button type="button" class="replyDeleteBtn btn btn-danger" data-rno="${replyList.rno}">삭제</button>
 								</c:if>
 								</div>
+								</sec:authorize>
 							</li>
 						</c:forEach>   
 					</ol>
