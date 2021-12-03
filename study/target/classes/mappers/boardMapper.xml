@@ -27,8 +27,8 @@
 		               TITLE, 
 		               CONTENT, 
 		               WRITER, 
-		               REGDATE, 
-		               HIT,
+		               REGDATE,
+		               HIT, 
 		               ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
 		         FROM MP_BOARD
 		         WHERE 1=1 
@@ -48,12 +48,22 @@
 	
 	<sql id="search">
 		<if test="searchType != null">
-			<if test="searchType == 't'.toString()">AND TITLE LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'c'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'w'.toString()">AND WRITER LIKE '%' || #{keyword} || '%'</if>
-			<if test="searchType == 'tc'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
+			<if test="searchType == 't'.toString()">AND TITLE LIKE CONCAT('%',#{keyword},'%')</if>
+			<if test="searchType == 'c'.toString()">AND CONTENT LIKE CONCAT('%',#{keyword},'%')</if>
+			<if test="searchType == 'w'.toString()">AND WRITER LIKE CONCAT('%',#{keyword},'%')</if>
+			<if test="searchType == 'tc'.toString()">AND (TITLE LIKE CONCAT('%',#{keyword},'%')) or (CONTENT LIKE CONCAT('%',#{keyword},'%'))</if>
 		</if>
 	</sql>
+	
+	<select id="read" parameterType="int" resultType="com.spring.study.vo.BoardVO">
+		SELECT   BNO
+			   , TITLE
+			   , CONTENT
+			   , WRITER
+			   , REGDATE
+		  FROM MP_BOARD
+		 WHERE BNO = #{bno}
+	</select>
 	
 	 <update id="update" parameterType="com.spring.study.vo.BoardVO">
 		UPDATE MP_BOARD
@@ -62,15 +72,6 @@
 		 WHERE BNO = #{bno} 
 	</update>
 	
-		<select id="read" parameterType="int" resultType="com.spring.study.vo.BoardVO">
-		SELECT	BNO
-			  , TITLE
-			  , CONTENT
-			  , WRITER
-			  , REGDATE
-		 FROM MP_BOARD
-		 WHERE BNO = #{bno}
-	</select>
 	
 	<delete id="delete" parameterType="int">
 		DELETE 
